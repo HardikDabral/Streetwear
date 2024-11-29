@@ -19,3 +19,47 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.perspective {
+  perspective: 1000px; /* Control the perspective depth */
+}
+
+.transform-style {
+  transform-style: preserve-3d; /* Allow child elements to be transformed in 3D space */
+  transition: transform 0.5s; /* Smooth transition for the transform */
+}
+
+.transform-style:hover {
+  transform: rotateY(10deg) rotateX(5deg); /* Rotate on hover for a 3D effect */
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.zoom-effect {
+  animation: zoom 10s infinite; /* Adjust duration as needed */
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(1); /* Original size */
+  }
+  50% {
+    transform: scale(1.05); /* Zoomed in */
+  }
+  100% {
+    transform: scale(1); /* Back to original size */
+  }
+}
+
+
