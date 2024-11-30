@@ -2,7 +2,11 @@
 
 import React, { useEffect } from "react";
 import Image from "next/image";
-import heroImage from "@/public/images/hero.jpg";
+import heroImage from "@/public/images/hero3.jpg";
+import heroImage1 from "@/public/images/hero1.jpg";
+import heroImage2 from "@/public/images/hero2.jpg";
+
+
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import AOS styles
 
@@ -65,24 +69,10 @@ const Hero = () => {
             data-aos="zoom-in"
             data-aos-delay="700"
           >
-            Shop Now
+            View Now
           </a>
         </div>
       </div>
-
-      {/* Moving Strip below the image */}
-      {/* <div className="relative bg-[#0a0a0a] text-white py-4 -mt-4">
-        <div className="overflow-hidden whitespace-nowrap">
-          <div className="inline-flex animate-marquee">
-            <span className="px-2 mx-4 text-2xl sm:text-3xl font-bold text-white">
-              NEW PRODUCT COMING SOON! &nbsp;&nbsp; NEW PRODUCT COMING SOON!
-              &nbsp;&nbsp; NEW PRODUCT COMING SOON! &nbsp;&nbsp; NEW PRODUCT
-              COMING SOON! &nbsp;&nbsp; NEW PRODUCT COMING SOON! &nbsp;&nbsp;
-              NEW PRODUCT COMING SOON! &nbsp;&nbsp;
-            </span>
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 };

@@ -2,10 +2,10 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import aboutImage1 from "@/public/images/about1.png"; // Replace with your image path
-import aboutImage2 from "@/public/images/about2.png"; // Replace with your image path
-import AOS from "aos"; 
-import "aos/dist/aos.css"; // Import AOS styles
+import aboutImage1 from "@/public/images/about1.png";
+import aboutImage2 from "@/public/images/about2.png";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const About = () => {
   const [hoveredImage, setHoveredImage] = useState(null);
@@ -18,8 +18,8 @@ const About = () => {
   }, []);
 
   return (
-    <div className="bg-black text-white py-20 px-4">
-      {/* About Us Section - Hidden on mobile */}
+    <div className="bg-black text-white py-20 px-4 overflow-x-hidden">
+      {/* About Us Section */}
       <div className="hidden md:block">
         <h1
           className="text-5xl md:text-6xl font-extrabold text-center bg-gradient-to-r from-blue-500 via-green-500 to-yellow-500 bg-clip-text text-transparent mb-8"
@@ -32,16 +32,16 @@ const About = () => {
           data-aos="fade-up"
           data-aos-delay="200"
         >
-          Welcome to our company! We are dedicated to providing the best products and services to our customers. 
+          Welcome to our company! We are dedicated to providing the best products and services to our customers.
           Our mission is to innovate and inspire through our unique offerings.
         </p>
       </div>
-      
+
       {/* Image section */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
         {/* Image 1 */}
         <div
-          className="relative w-full h-[200px] md:h-[500px] overflow-hidden rounded-lg shadow-xl transition-transform duration-300 group"
+          className="relative w-full h-[200px] md:h-[500px] overflow-hidden rounded-lg shadow-xl group"
           onMouseEnter={() => setHoveredImage("image1")}
           onMouseLeave={() => setHoveredImage(null)}
           data-aos="fade-right"
@@ -50,23 +50,25 @@ const About = () => {
           <Image
             src={aboutImage1}
             alt="About Image 1"
-            layout="fill"
+            layout="responsive"
+            width={500}
+            height={300}
             objectFit="cover"
             objectPosition="top"
-            className="object-center transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3"
+            className="transition-transform duration-500 transform group-hover:scale-110 group-hover:rotate-3"
           />
-          
-          {/* Hover Popup for Image 1 */}
+          {/* Hover Popup */}
           {hoveredImage === "image1" && (
             <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white p-4 opacity-100 transition-opacity duration-300 z-10">
               <p className="text-2xl font-semibold text-center">“Fashion is the armor to survive the reality of everyday life.”</p>
             </div>
           )}
         </div>
-        
+
+
         {/* Image 2 */}
         <div
-          className="relative w-full h-[200px] md:h-[500px] overflow-hidden rounded-lg shadow-xl transition-transform duration-300 group"
+          className="relative w-full h-[200px] md:h-[500px] overflow-hidden rounded-lg shadow-xl group"
           onMouseEnter={() => setHoveredImage("image2")}
           onMouseLeave={() => setHoveredImage(null)}
           data-aos="fade-left"
@@ -75,13 +77,14 @@ const About = () => {
           <Image
             src={aboutImage2}
             alt="About Image 2"
-            layout="fill"
+            layout="responsive"
+            width={500}
+            height={300}
             objectFit="cover"
             objectPosition="top"
-            className="object-center transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3"
+             className="transition-transform duration-500 transform group-hover:scale-110 group-hover:rotate-3"
           />
-          
-          {/* Hover Popup for Image 2 */}
+          {/* Hover Popup */}
           {hoveredImage === "image2" && (
             <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white p-4 opacity-100 transition-opacity duration-300 z-10">
               <p className="text-2xl font-semibold text-center">“Clothes aren’t going to change the world, the women who wear them will.”</p>
@@ -107,7 +110,7 @@ const About = () => {
       >
         <a
           href="#"
-          className="inline-block px-8 py-3 text-lg font-semibold text-black bg-white rounded-full shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-lg"
+          className="inline-block px-8 py-3 text-lg font-semibold text-black bg-white rounded-full shadow-md transition-transform duration-300 hover:scale-105"
         >
           Get Started
         </a>
