@@ -96,7 +96,7 @@ const Explore = () => {
 
             {/* Mission statement */}
             <p
-                className="text-lg md:text-xl text-center mt-12 max-w-3xl mx-auto text-gray-300"
+                className="text-lg md:text-xl text-center mt-12  max-w-3xl mx-auto text-gray-300"
                 data-aos="fade-up"
                 data-aos-delay="500"
             >
@@ -104,7 +104,7 @@ const Explore = () => {
             </p>
 
             {/* Call to action */}
-            <div
+            {/* <div
                 className="text-center mt-12"
                 data-aos="zoom-in"
                 data-aos-delay="700"
@@ -115,7 +115,7 @@ const Explore = () => {
                 >
                     Get Started
                 </a>
-            </div>
+            </div> */}
         </div>
     );
 };

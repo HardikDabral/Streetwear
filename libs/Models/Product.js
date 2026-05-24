@@ -4,13 +4,14 @@ const productSchema = new mongoose.Schema({
   name: { type: String, required: true },
   description: { type: String, required: true },
   price: { type: Number, required: true },
-  fileKeys: { type: [String], required: false }, // Optional field for storing file keys
+  fileKeys: { type: [String], required: false },
   category: { type: String, required: true },
-  imgSrc: { type: [String], required: true }, // Array of image URLs
+  imgSrc: { type: [String], required: true },
   stock: { type: Number, required: true },
-  sizes: { type: [String], required: false }, // Optional field for sizes
+  sizes: { type: [String], required: false },
 });
 
-const Product = mongoose.model("Product", productSchema);
+// Check if the model is already registered
+const Product = mongoose.models.Product || mongoose.model("Product", productSchema);
 
 module.exports = Product;

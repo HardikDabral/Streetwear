@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import aboutImage1 from "@/public/images/about1.png";
 import aboutImage2 from "@/public/images/about2.png";
+import karmic from "@/public/images/karmic.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -18,8 +19,21 @@ const About = () => {
   }, []);
 
   return (
-    <div className="bg-black text-white py-20 px-4 overflow-x-hidden">
-      {/* About Us Section */}
+    <div className="bg-black text-white py-0 md:py-20 px-4 overflow-x-hidden">
+      {/* Mobile Image */}
+      <div className="block md:hidden">
+        <Image
+          src={karmic}
+          alt="Karmic Logo"
+          layout="responsive"
+          width={500}
+          height={300}
+          objectFit="contain"
+          className="mx-auto flicker-effect"
+        />
+      </div>
+
+      {/* About Us Section (Hidden on Small Screens) */}
       <div className="hidden md:block">
         <h1
           className="text-5xl md:text-6xl font-extrabold text-center bg-gradient-to-r from-blue-500 via-green-500 to-yellow-500 bg-clip-text text-transparent mb-8"
@@ -37,7 +51,7 @@ const About = () => {
         </p>
       </div>
 
-      {/* Image section */}
+      {/* Image Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
         {/* Image 1 */}
         <div
@@ -65,7 +79,6 @@ const About = () => {
           )}
         </div>
 
-
         {/* Image 2 */}
         <div
           className="relative w-full h-[200px] md:h-[500px] overflow-hidden rounded-lg shadow-xl group"
@@ -82,7 +95,7 @@ const About = () => {
             height={300}
             objectFit="cover"
             objectPosition="top"
-             className="transition-transform duration-500 transform group-hover:scale-110 group-hover:rotate-3"
+            className="transition-transform duration-500 transform group-hover:scale-110 group-hover:rotate-3"
           />
           {/* Hover Popup */}
           {hoveredImage === "image2" && (
@@ -93,18 +106,18 @@ const About = () => {
         </div>
       </div>
 
-      {/* Mission statement */}
+      {/* Mission Statement (Hidden on Small Screens) */}
       <p
-        className="text-lg md:text-xl text-center mt-12 max-w-3xl mx-auto text-gray-300"
+        className="hidden md:block text-lg md:text-xl text-center mt-12 max-w-3xl mx-auto text-gray-300"
         data-aos="fade-up"
         data-aos-delay="500"
       >
         Join us on our journey to excellence, where innovation meets passion.
       </p>
 
-      {/* Call to action */}
-      <div
-        className="text-center mt-12"
+      {/* Call to Action (Hidden on Small Screens) */}
+      {/* <div
+        className="hidden md:block text-center mt-12"
         data-aos="zoom-in"
         data-aos-delay="700"
       >
@@ -114,7 +127,7 @@ const About = () => {
         >
           Get Started
         </a>
-      </div>
+      </div> */}
     </div>
   );
 };

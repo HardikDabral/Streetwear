@@ -3,12 +3,9 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 import heroImage from "@/public/images/hero3.jpg";
-import heroImage1 from "@/public/images/hero1.jpg";
-import heroImage2 from "@/public/images/hero2.jpg";
-
-
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import AOS styles
+import { motion } from "framer-motion"; // Import framer-motion
 
 const Hero = () => {
   useEffect(() => {
@@ -42,7 +39,7 @@ const Hero = () => {
             data-aos="fade-up"
           >
             FLASH SALE! - 30% OFF ALL ITEMS
-          </p> 
+          </p>
 
           {/* Main Headline */}
           <h1
@@ -62,15 +59,29 @@ const Hero = () => {
             Discover the Exclusive Winter Collection
           </h3>
 
-           {/* CTA Button */}
-          <a
+          {/* CTA Button with ripple effect */}
+          <motion.a
             href="#trending-products"
-            className="inline-block mt-6 bg-white text-black font-bold px-8 py-4 rounded-full shadow-lg hover:bg-black hover:text-white transition-colors duration-300"
+            className="inline-block mt-6 bg-white text-black font-bold px-8 py-4 rounded-full shadow-lg hover:bg-black hover:text-white transition-colors duration-300 relative overflow-hidden"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             data-aos="zoom-in"
             data-aos-delay="700"
           >
-            View Now
-          </a>
+            <span className="relative z-10">View Now</span>
+            {/* Ripple effect */}
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-gray-600 via-gray-600 to-gray-600 opacity-20 rounded-full"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1.5, opacity: 0 }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                repeatType: "loop",
+                ease: "easeOut",
+              }}
+            />
+          </motion.a>
         </div>
       </div>
     </div>

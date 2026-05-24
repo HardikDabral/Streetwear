@@ -1,8 +1,7 @@
-// libs/MongoConnect.js
 const mongoose = require("mongoose");
 
 const connectToMongoDB = async () => {
-  if (mongoose.connections[0].readyState) {
+  if (mongoose.connection.readyState >= 1) {
     return mongoose.connection.asPromise();
   }
 
