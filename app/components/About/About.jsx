@@ -36,7 +36,7 @@ const About = () => {
       {/* About Us Section (Hidden on Small Screens) */}
       <div className="hidden md:block">
         <h1
-          className="text-5xl md:text-6xl font-extrabold text-center bg-gradient-to-r from-blue-500 via-green-500 to-yellow-500 bg-clip-text text-transparent mb-8"
+          className="text-5xl md:text-6xl font-extrabold text-center text-white mb-8"
           data-aos="fade-up"
         >
           About Us

@@ -25,6 +25,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/shop", label: "Shop" },
   { href: "/shop?category=Hoodie", label: "Hoodies" },
+  { href: "/about", label: "About" },
 ];
 
 const Navbar = () => {
