@@ -39,12 +39,34 @@ const TrendingProducts = () => {
         />
       </div>
 
-      <div className="container mx-auto max-w-7xl px-4 sm:px-6 md:px-8 lg:px-12">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
-          {loading
-            ? Array.from({ length: 4 }).map((_, i) => <ProductSkeleton key={i} />)
-            : products.map((p) => <ProductCard key={p._id} product={p} />)}
-        </div>
+      {/* Mobile: 2-col grid */}
+      <div className="md:hidden grid grid-cols-2 gap-2 px-2">
+        {loading
+          ? Array.from({ length: 4 }).map((_, i) => <ProductSkeleton key={i} />)
+          : products.map((p) => (
+              <ProductCard key={p._id} product={p} className="block" />
+            ))}
+      </div>
+
+      {/* Desktop: infinite scrolling carousel */}
+      <div className="hidden md:block mx-auto max-w-[1440px] px-2 sm:px-3 overflow-hidden">
+        {loading ? (
+          <div className="flex gap-3 pb-2">
+            {Array.from({ length: 4 }).map((_, i) => (
+              <div key={i} className="flex-shrink-0 w-[300px] lg:w-[320px]">
+                <ProductSkeleton />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="flex gap-3 pb-2 w-max animate-scroll">
+            {[...products, ...products].map((p, i) => (
+              <div key={`${p._id}-${i}`} className="flex-shrink-0 w-[300px] lg:w-[320px]">
+                <ProductCard product={p} className="block" />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       <div className="text-center mt-10">
